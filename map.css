@@ -1,0 +1,14 @@
+#map-id{
+    height: 400px;
+    width: 500px;
+    border:2px solid black;
+    border-radius: 5px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 5%;
+    margin-top: 5%;
+}
