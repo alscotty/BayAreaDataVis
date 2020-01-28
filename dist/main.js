@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ \"./src/map.js\");\n\n\nwindow.addEventListener('DOMContentLoaded', () => {\n\n    let map= new _map__WEBPACK_IMPORTED_MODULE_0__[\"default\"]()\n\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ \"./src/map.js\");\n\n\nwindow.addEventListener('DOMContentLoaded', () => {\n\n    new _map__WEBPACK_IMPORTED_MODULE_0__[\"default\"]()\n\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

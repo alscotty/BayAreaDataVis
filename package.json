@@ -1,0 +1,26 @@
+{
+  "name": "BayAreaDataVis",
+  "version": "1.0.0",
+  "description": "ReadME",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alscotty/BayAreaDataVis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alscotty/BayAreaDataVis/issues"
+  },
+  "homepage": "https://github.com/alscotty/BayAreaDataVis#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6"
+  }
+}
