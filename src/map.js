@@ -20,7 +20,7 @@ let regStyle={
 
 let highlightStyle={
     color: 'darkblue',
-    fillOpacity:0.6
+    fillOpacity:0.6,
 
 }
 
@@ -30,11 +30,15 @@ const onEachFeature = function (feature, layer) {
     ((layer, properties)=> {
 
         var popup = L.popup('', {
-            id: "popup-" + properties.nbrhood
+            id: "popup"
         });
         popup.setContent(`${properties.nbrhood}`)
 
-        layer.bindPopup(popup);
+        var popupOptions={
+            'className':'popup'
+        };
+
+        layer.bindPopup(popup,popupOptions);
 
         layer.on("mouseover", (e) => {
             layer.setStyle(highlightStyle);
@@ -52,7 +56,10 @@ L.geoJSON(boundaries, {
     onEachFeature: onEachFeature
 }).addTo(myMap);
 
+
+
 }
+
 
 }
 
