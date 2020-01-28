@@ -28,43 +28,24 @@ let highlightStyle={
 
 const onEachFeature = function (feature, layer) {
     layer.setStyle(regStyle);
-    // Create a self-invoking function that passes in the layer
-    // and the properties associated with this particular record.
-    (function (layer, properties) {
-        // Create a mouseover event
-        layer.on("mouseover", function (e) {
-            // Change the style to the highlighted version
-            layer.setStyle(highlightStyle);
-            // Create a popup with a unique ID linked to this record
 
-            // var popup = $("<div></div>", {
-            //     id: "popup-" + properties.DISTRICT,
-            //     css: {
-            //         position: "absolute",
-            //         bottom: "85px",
-            //         left: "50px",
-            //         zIndex: 1002,
-            //         backgroundColor: "white",
-            //         padding: "8px",
-            //         border: "1px solid #ccc"
-            //     }
-            // });
+    ((layer, properties)=> {
 
-            // Insert a headline into that popup
-            // var hed = $("<div></div>", {
-            //     text: "District " + properties.DISTRICT + ": " + properties.REPRESENTATIVE,
-            //     css: { fontSize: "16px", marginBottom: "3px" }
-            // }).appendTo(popup);
-
-            // // Add the popup to the map
-            // popup.appendTo("#map");
+        var popup = L.popup('', {
+            id: "popup-" + properties.nbrhood
         });
-        // Create a mouseout event that undoes the mouseover changes
-        layer.on("mouseout", function (e) {
-            // Start by reverting the style back
+        popup.setContent(`${properties.nbrhood}`)
+
+        layer.bindPopup(popup);
+
+        layer.on("mouseover", (e) => {
+            layer.setStyle(highlightStyle);
+
+            layer.openPopup();
+        });
+        layer.on("mouseout", (e) => {
             layer.setStyle(regStyle);
-            // And then destroying the popup
-            // $("#popup-" + properties.DISTRICT).remove();
+            layer.closePopup();
         });
     })(layer, feature.properties);
 };
