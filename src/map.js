@@ -1,4 +1,5 @@
 import {boundaries} from './boundaries'
+import {prices} from './prices'
 
 class Map {
 
