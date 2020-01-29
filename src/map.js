@@ -30,12 +30,12 @@ let highlightStyle={
         let myPrices = [];
         prices.forEach(place => {
             if (place['Neighborhood'] == neighborhood) {
-                myPrices.push('S' + place.Price__247)
+                myPrices.push('$' + place.Price__247)
             }
         });
         //test to find missing neighborhood data
         // if (myPrices.length<1){console.log(neighborhood)}
-        
+        console.log(myPrices)
         return myPrices
     }
 
@@ -49,22 +49,22 @@ const onEachFeature = function (feature, layer) {
             id: "popup"
         });
 
-        let firstPrice=findprices(properties.nbrhood);
-
-        popup.setContent(`${properties.nbrhood}, latest avg home price: ${firstPrice}`)
-
+        let lastPrice=findprices(properties.nbrhood);
+        
+        popup.setContent(`${properties.nbrhood}, latest avg home price: ${lastPrice}`)
+        
         var popupOptions={
             'className':'popup'
         };
-
+        
         layer.bindPopup(popup,popupOptions);
-
-        layer.on("mouseover", (e) => {
+        
+        layer.on("mouseover", () => {
             layer.setStyle(highlightStyle);
-
+            
             layer.openPopup();
         });
-        layer.on("mouseout", (e) => {
+        layer.on("mouseout", () => {
             layer.setStyle(regStyle);
             layer.closePopup();
         });
