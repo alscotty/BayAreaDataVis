@@ -5062,7 +5062,7 @@ export const prices=[
         "Price__247": 851758
     },
     {
-        "Neighborhood": "Golden Gate Heights",
+        "Neighborhood": "Golden Gate Park",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -8351,7 +8351,7 @@ export const prices=[
         "Price__247": 1264768
     },
     {
-        "Neighborhood": "Buena Vista",
+        "Neighborhood": "Buena Vista Park/Ashbury Heights",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -9616,7 +9616,7 @@ export const prices=[
         "Price__247": 1287677
     },
     {
-        "Neighborhood": "Haight",
+        "Neighborhood": "Haight Ashbury",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -11387,7 +11387,7 @@ export const prices=[
         "Price__247": 1266980
     },
     {
-        "Neighborhood": "Lakeshore",
+        "Neighborhood": "Lake Shore",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -12905,7 +12905,7 @@ export const prices=[
         "Price__247": 1024643
     },
     {
-        "Neighborhood": "Financial District",
+        "Neighborhood": "Financial District/Barbary Coast",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -13158,7 +13158,7 @@ export const prices=[
         "Price__247": 944195
     },
     {
-        "Neighborhood": "Lake",
+        "Neighborhood": "Lakeside",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -14676,7 +14676,7 @@ export const prices=[
         "Price__247": 1137119
     },
     {
-        "Neighborhood": "Merced Manor",
+        "Neighborhood": "Merced Heights",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",
@@ -17206,7 +17206,7 @@ export const prices=[
         "Price__247": 1396358
     },
     {
-        "Neighborhood": "Seacliff",
+        "Neighborhood": "Sea Cliff",
         "": "San Francisco",
         "__1": "CA",
         "Price": "San Francisco County",

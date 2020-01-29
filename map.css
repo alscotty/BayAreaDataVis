@@ -1,6 +1,6 @@
 #map-id{
     height: 600px;
-    width: 85%;
+    width: 75%;
     border:2px solid black;
     border-radius: 5px;
     margin-left: 5%;
@@ -8,8 +8,8 @@
 }
 
 .popup {
-    font-family: fantasy;
-    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
     font-weight: bold;
 }
 

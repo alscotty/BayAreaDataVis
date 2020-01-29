@@ -25,6 +25,21 @@ let highlightStyle={
 
 }
 
+
+    const findprices=(neighborhood)=>{
+        let myPrices = [];
+        prices.forEach(place => {
+            if (place['Neighborhood'] == neighborhood) {
+                myPrices.push('S' + place.Price__247)
+            }
+        });
+        //test to find missing neighborhood data
+        // if (myPrices.length<1){console.log(neighborhood)}
+        
+        return myPrices
+    }
+
+
 const onEachFeature = function (feature, layer) {
     layer.setStyle(regStyle);
 
@@ -33,7 +48,10 @@ const onEachFeature = function (feature, layer) {
         var popup = L.popup('', {
             id: "popup"
         });
-        popup.setContent(`${properties.nbrhood}`)
+
+        let firstPrice=findprices(properties.nbrhood);
+
+        popup.setContent(`${properties.nbrhood}, latest avg home price: ${firstPrice}`)
 
         var popupOptions={
             'className':'popup'
@@ -56,8 +74,6 @@ const onEachFeature = function (feature, layer) {
 L.geoJSON(boundaries, {
     onEachFeature: onEachFeature
 }).addTo(myMap);
-
-
 
 }
 
