@@ -42,21 +42,21 @@ let highlightStyle={
 
 
     const biAnnualPrices = (neighborhood) => {
-        let priceList=[];
+        let priceList=[`${neighborhood}`];
         prices.forEach(place => {
             if (place['Neighborhood'] == neighborhood) {
-                priceList.push('$'+ place.Price__1 + ' ')
-                priceList.push('$' + place.Price__24 + ' ')
-                priceList.push('$' + place.Price__48 + ' ')
-                priceList.push('$' + place.Price__72 + ' ')
-                priceList.push('$' + place.Price__96 + ' ')
-                priceList.push('$' + place.Price__120 + ' ')
-                priceList.push('$' + place.Price__144 + ' ')
-                priceList.push('$' + place.Price__168 + ' ')
-                priceList.push('$' + place.Price__192 + ' ')
-                priceList.push('$' + place.Price__202 + ' ')
-                priceList.push('$' + place.Price__225 + ' ')
-                priceList.push('$' + place.Price__247 + ' ')
+                priceList.push( '1996 '+'$'+ place.Price__1 + ' ')
+                priceList.push( '1998 '+'$' + place.Price__24 + ' ')
+                priceList.push( '2000 '+'$' + place.Price__48 + ' ')
+                priceList.push( '2002 '+'$' + place.Price__72 + ' ')
+                priceList.push( '2004 '+'$' + place.Price__96 + ' ')
+                priceList.push( '2006 '+'$' + place.Price__120 + ' ')
+                priceList.push( '2008 '+'$' + place.Price__144 + ' ')
+                priceList.push( '2010 '+'$' + place.Price__168 + ' ')
+                priceList.push( '2012 '+'$' + place.Price__192 + ' ')
+                priceList.push( '2014 '+'$' + place.Price__202 + ' ')
+                priceList.push( '2016 '+'$' + place.Price__225 + ' ')
+                priceList.push( '2018 '+'$' + place.Price__247 + ' ')
             }
         });
 

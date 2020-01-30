@@ -5,16 +5,46 @@
     border-radius: 5px;
     margin-left: 5%;
     margin-top: 5%;
+   border: 2px solid cyan;
+
+}
+
+.flex-container{
+    display: flex;
+   border: 2px solid green;
+    align-items: center;
+    justify-content: space-evenly;
+}
+body{
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .popup {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
     font-size: medium;
     font-weight: bold;
 }
 
-h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+#title{
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h4,#title{
     margin-left: 5%;
     margin-top: 5%;
+   border: 2px solid cyan;
+}
+
+#graph{
+   width:5%;
+   font-size:larger;
+   border: 2px solid cyan;
+   border-radius: 5px;
+}
+
+#zillow{
+    margin-left: 80%;
 }
