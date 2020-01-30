@@ -1,24 +1,36 @@
 #map-id{
-    height: 600px;
-    width: 75%;
+    height: 550px;
+    width: 65%;
     border:2px solid black;
     border-radius: 5px;
-    margin-left: 5%;
-    margin-top: 5%;
+   margin:5%;
    border: 2px solid cyan;
-
 }
 
 .flex-container{
     display: flex;
    border: 2px solid green;
     align-items: center;
-    justify-content: space-evenly;
+    margin-bottom: 3.2em;
+
 }
 body{
-     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:  'Montserrat', sans-serif ;
+    color:white;
     font-weight: bold;
+}
 
+#z{
+    text-decoration: none;
+    color:rgb(157, 17, 212)
+}
+
+body{
+    background-image: url("/assets/background.png");
+    z-index:-1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .popup {
