@@ -35,12 +35,40 @@ let highlightStyle={
         });
         //test to find missing neighborhood data
         // if (myPrices.length<1){console.log(neighborhood)}
-        console.log(myPrices)
+        // console.log(myPrices)
+     
         return myPrices
     }
 
 
-const onEachFeature = function (feature, layer) {
+    const biAnnualPrices = (neighborhood) => {
+        let priceList=[];
+        prices.forEach(place => {
+            if (place['Neighborhood'] == neighborhood) {
+                priceList.push('$'+ place.Price__1 + ' ')
+                priceList.push('$' + place.Price__24 + ' ')
+                priceList.push('$' + place.Price__48 + ' ')
+                priceList.push('$' + place.Price__72 + ' ')
+                priceList.push('$' + place.Price__96 + ' ')
+                priceList.push('$' + place.Price__120 + ' ')
+                priceList.push('$' + place.Price__144 + ' ')
+                priceList.push('$' + place.Price__168 + ' ')
+                priceList.push('$' + place.Price__192 + ' ')
+                priceList.push('$' + place.Price__202 + ' ')
+                priceList.push('$' + place.Price__225 + ' ')
+                priceList.push('$' + place.Price__247 + ' ')
+            }
+        });
+
+        let graph=document.getElementById('graph');
+        priceList.forEach(price=>{
+            graph.append(price)
+        })
+
+    }
+
+
+const onEachFeature = (feature, layer) => {
     layer.setStyle(regStyle);
 
     ((layer, properties)=> {
@@ -51,21 +79,27 @@ const onEachFeature = function (feature, layer) {
 
         let lastPrice=findprices(properties.nbrhood);
         
-        popup.setContent(`${properties.nbrhood}, latest avg home price: ${lastPrice}`)
+        popup.setContent(`${properties.nbrhood}, latest avg home price (2016): ${lastPrice}`)
         
         var popupOptions={
             'className':'popup'
         };
-        
+
         layer.bindPopup(popup,popupOptions);
         
         layer.on("mouseover", () => {
             layer.setStyle(highlightStyle);
             
+            biAnnualPrices(layer.feature.properties.nbrhood)
+
             layer.openPopup();
         });
         layer.on("mouseout", () => {
             layer.setStyle(regStyle);
+
+            let graph=document.getElementById('graph');
+            graph.innerHTML='';
+
             layer.closePopup();
         });
     })(layer, feature.properties);
