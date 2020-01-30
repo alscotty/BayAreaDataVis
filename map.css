@@ -13,11 +13,12 @@
     width:100%;
     align-items: center;
     margin-bottom: 3.2em;
-    margin-right: 5%;
+    margin-right: 3em;
 
 }
 body{
     position:fixed;
+    display:block;
     width:100%;
     font-family:  'Montserrat', sans-serif ;
     color:white;
