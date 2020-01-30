@@ -1,6 +1,7 @@
 #map-id{
     height: 550px;
     width: 65%;
+
     border:2px solid black;
     border-radius: 5px;
    margin:5%;
@@ -9,28 +10,33 @@
 
 .flex-container{
     display: flex;
-   border: 2px solid green;
+    width:100%;
     align-items: center;
     margin-bottom: 3.2em;
+    margin-right: 5%;
 
 }
 body{
+    position:fixed;
+    width:100%;
     font-family:  'Montserrat', sans-serif ;
     color:white;
     font-weight: bold;
-}
 
-#z{
-    text-decoration: none;
-    color:rgb(157, 17, 212)
-}
-
-body{
     background-image: url("/assets/background.png");
     z-index:-1;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+#zillow{
+    margin-left: 75%;
+}
+
+#z{
+    text-decoration: none;
+    color:rgb(157, 17, 212)
 }
 
 .popup {
@@ -45,17 +51,14 @@ body{
 
 h4,#title{
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-right: 5%;
    border: 2px solid cyan;
+   border-radius:5px;
 }
 
 #graph{
    width:5%;
    font-size:larger;
-   border: 2px solid cyan;
-   border-radius: 5px;
 }
 
-#zillow{
-    margin-left: 80%;
-}
