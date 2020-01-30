@@ -1,2 +1,0 @@
-# BayAreaDataVis
-ReadME
