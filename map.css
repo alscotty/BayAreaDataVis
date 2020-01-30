@@ -5,7 +5,7 @@
     border:2px solid black;
     border-radius: 5px;
    margin:5%;
-   border: 2px solid cyan;
+   border: 3px solid rgb(157, 17, 212);
 }
 
 .flex-container{
@@ -53,7 +53,7 @@ h4,#title{
     margin-left: 5%;
     margin-top: 2%;
     margin-right: 5%;
-   border: 2px solid cyan;
+   border: 2px solid rgb(157, 17, 212);
    border-radius:5px;
 }
 
