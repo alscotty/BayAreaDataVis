@@ -1,5 +1,6 @@
 import {boundaries} from './boundaries'
 import {prices} from './prices'
+import {randColorArr} from './extra_functions'
 
 class Map {
 
@@ -122,7 +123,9 @@ let highlightStyle={
                 x.domain(d3.extent(data, (d) => { return d.year })); 
                 y.domain(d3.extent(data, (d) => { return d.price }));
 
-        g.append("path").datum(data).attr("fill", "none").attr("stroke", "steelblue").attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
+        let colors=randColorArr();
+        
+        g.append("path").datum(data).attr("fill","none").attr("stroke", `rgb(${colors[0]},${colors[1]},${colors[2]})`).attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
 
         
     }
