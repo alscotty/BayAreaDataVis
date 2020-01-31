@@ -66,22 +66,6 @@ let highlightStyle={
 
     }
 
-    function emptyGraph(){
-        var svgWidth = 600, svgHeight = 400;
-        var margin = { top: 20, right: 20, bottom: 30, left: 50 },
-            width = svgWidth - margin.left - margin.right,
-            height = svgHeight - margin.top - margin.bottom;
-        var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
-        var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        var x = d3.scaleLinear().rangeRound([0, width]);
-        var y = d3.scaleLinear().rangeRound([height, 0]);
-
-        g.append("g").attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x)).select(".domain").remove();
-
-        g.append("g").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Price ($)");
-
-    }
 
     const formatGraphData= (neighborhood) =>{
         let dataPairs=[]
@@ -103,6 +87,26 @@ let highlightStyle={
         return dataPairs;
     }
 
+    function emptyGraph(data) {
+        var svgWidth = 600, svgHeight = 400;
+        var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+            width = svgWidth - margin.left - margin.right,
+            height = svgHeight - margin.top - margin.bottom;
+        var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
+        var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var x = d3.scaleLinear().rangeRound([0, width]);
+        var y = d3.scaleLinear().rangeRound([height, 0]);
+
+        x.domain(d3.extent(data, (d) => { return d.year }));
+        y.domain(d3.extent(data, (d) => { return d.price }));
+
+        g.append("g").attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x)).select(".domain").attr('dx', '0.71em', "text-anchor", "end").text("Year");
+
+        g.append("g").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Price ($)");
+
+    }
+
     const drawChart=(data)=>{
         var svgWidth = 600, svgHeight = 400; 
         var margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -118,11 +122,6 @@ let highlightStyle={
                 x.domain(d3.extent(data, (d) => { return d.year })); 
                 y.domain(d3.extent(data, (d) => { return d.price }));
 
-        g.append("g").attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x)).select(".domain").remove();
-        
-        g.append("g").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Price ($)");
-
         g.append("path").datum(data).attr("fill", "none").attr("stroke", "steelblue").attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
 
         
@@ -131,7 +130,8 @@ let highlightStyle={
 
 const onEachFeature = (feature, layer) => {
     layer.setStyle(regStyle);
-    emptyGraph();
+    let presidio=formatGraphData("Presidio");
+    emptyGraph(presidio);
 
     ((layer, properties)=> {
 
@@ -158,10 +158,10 @@ const onEachFeature = (feature, layer) => {
         
         layer.on('click', ()=>{
             
-            let graph=document.getElementById('graph');
-            graph.innerHTML='';
+            // let graph=document.getElementById('graph');
+            // graph.innerHTML='';
             
-            biAnnualPrices(layer.feature.properties.nbrhood);
+            // biAnnualPrices(layer.feature.properties.nbrhood);
 
             let data=formatGraphData(layer.feature.properties.nbrhood)
             drawChart(data);
@@ -187,3 +187,29 @@ L.geoJSON(boundaries, {
 }
 
 export default Map;
+
+
+// const drawChart = (data) => {
+//     var svgWidth = 600, svgHeight = 400;
+//     var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+//         width = svgWidth - margin.left - margin.right,
+//         height = svgHeight - margin.top - margin.bottom;
+//     var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
+//     var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//     var x = d3.scaleLinear().rangeRound([0, width]);
+//     var y = d3.scaleLinear().rangeRound([height, 0]);
+
+//     var line = d3.line().x((data) => { return x(data.year) })
+//         .y((d) => { return y(d.price) })
+//     x.domain(d3.extent(data, (d) => { return d.year }));
+//     y.domain(d3.extent(data, (d) => { return d.price }));
+
+//     g.append("g").attr("transform", "translate(0," + height + ")")
+//         .call(d3.axisBottom(x)).select(".domain").attr('dx', '0.71em', "text-anchor", "end").text("Year");
+
+//     g.append("g").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Price ($)");
+
+//     g.append("path").datum(data).attr("fill", "none").attr("stroke", "steelblue").attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
+
+
+// }
