@@ -90,15 +90,21 @@ const onEachFeature = (feature, layer) => {
         layer.on("mouseover", () => {
             layer.setStyle(highlightStyle);
             
-            biAnnualPrices(layer.feature.properties.nbrhood)
-
+            
             layer.openPopup();
         });
+        
+        layer.on('click', ()=>{
+            
+            let graph=document.getElementById('graph');
+            graph.innerHTML='';
+            
+            biAnnualPrices(layer.feature.properties.nbrhood)
+        })
+
         layer.on("mouseout", () => {
             layer.setStyle(regStyle);
 
-            let graph=document.getElementById('graph');
-            graph.innerHTML='';
 
             layer.closePopup();
         });

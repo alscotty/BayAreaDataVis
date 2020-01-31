@@ -24,7 +24,7 @@ body{
     color:white;
     font-weight: bold;
 
-    background-image: url("assets/background.png");
+    background-image: url("/assets/background.png");
     z-index:-1;
     background-repeat: no-repeat;
     background-size: cover;
