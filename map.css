@@ -17,7 +17,6 @@
 
 }
 body{
-    position:fixed;
     display:block;
     width:100%;
     font-family:  'Montserrat', sans-serif ;
@@ -56,10 +55,19 @@ h4,#title{
     margin-right: 5%;
    border: 2px solid rgb(157, 17, 212);
    border-radius:5px;
+   width:60%;
 }
 
 #graph{
    width:5%;
    font-size:larger;
+}
+
+#svg{
+    height:400px;
+    width: 600px;
+    margin-left: 5%;
+    border: 2px solid rgb(157, 17, 212);
+    background-color: white;
 }
 
