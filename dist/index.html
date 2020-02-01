@@ -3,22 +3,33 @@
 </head>
 
 <body>
-    <div id="title">San Francisco Median Home Price Trends</div>
-    <h4>Hover on a Neighborhood to view Bi-Annual Prices (1996-2016): <br/>
+    <div id="title">
+        <span>
+        San Francisco Median Home Price Trends
+        </span>
+    </div>
+    <h4>
+        <span>
+        Hover on a Neighborhood to view Bi-Annual Prices (1996-2016): <br/>
         Click to view trend line
+        </span>
     </h4>
 
     <span class='flex-container'>
         <div id='map-id'></div>
+        <span>
+            <svg id='svg'></svg>
+            <br>
+            <br>
+            <div id="zillow">
+                Data courtesy of <a href="https://www.zillow.com/research/data/" id="z">Zillow</a>
+            </div>
 
+        </span>
         <div id='graph'></div>
     </span>
 
-    <svg id='svg'></svg>
 
-    <div id="zillow">
-        Data courtesy of <a href="https://www.zillow.com/research/data/" id="z">Zillow</a>
-    </div>
 <body>
 
 <!DOCTYPE html>

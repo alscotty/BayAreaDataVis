@@ -1,7 +1,7 @@
 #map-id{
     height: 550px;
     width: 65%;
-
+    min-width: 45%;
     border:2px solid black;
     border-radius: 5px;
    margin:5%;
@@ -13,8 +13,6 @@
     width:100%;
     align-items: center;
     margin-bottom: 3.2em;
-    margin-right: 3em;
-
 }
 body{
     display:block;
@@ -47,6 +45,7 @@ body{
     font-size: x-large;
     margin-top: 5px;
     margin-bottom: 5px;
+    
 }
 
 h4,#title{
@@ -56,6 +55,10 @@ h4,#title{
    border: 2px solid rgb(157, 17, 212);
    border-radius:5px;
    width:60%;
+   display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px ;
 }
 
 #graph{
@@ -64,6 +67,8 @@ h4,#title{
 }
 
 #svg{
+    font-weight: normal;
+    font-size: larger;
     height:400px;
     width: 600px;
     margin-left: 5%;
