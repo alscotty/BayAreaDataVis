@@ -95,9 +95,10 @@ let highlightStyle={
             height = svgHeight - margin.top - margin.bottom;
         var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
         var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        var x = d3.scaleLinear().rangeRound([0, width]);
+        var x = d3.scaleLinear()
+            .range([0,width]);
         var y = d3.scaleLinear()
-        .rangeRound([height, 0]);
+            .range([height, 0]);
 
         x.domain(d3.extent(data, (d) => { return d.year }));
         y.domain(d3.extent(data, (d) => { return d.price }));
@@ -123,9 +124,11 @@ let highlightStyle={
         var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
         
         var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        var x = d3.scaleLinear()
+        var x = d3
+            .scaleLinear()
             .rangeRound([0, width]);
-        var y = d3.scaleLinear()
+        var y = d3
+            .scaleLinear()
             .rangeRound([height, 0]);
         
         var line = d3.line().x((data)=> { return x(data.year) })
@@ -173,6 +176,7 @@ const onEachFeature = (feature, layer) => {
         layer.on('click', ()=>{
             let nbrhood=layer.feature.properties.nbrhood
             let data=formatGraphData(nbrhood)
+
             drawChart(data,nbrhood);
 
         })
