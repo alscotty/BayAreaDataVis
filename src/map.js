@@ -116,7 +116,7 @@ let highlightStyle={
 
     }
 
-    const drawChart=(data)=>{
+    const drawChart=(data,nbrhood)=>{
         var svgWidth = 600, svgHeight = 400; 
         var margin = { top: 20, right: 20, bottom: 30, left: 50 },
             width = svgWidth - margin.left - margin.right,
@@ -140,7 +140,20 @@ let highlightStyle={
         let colors=randColorArr();
 
         g.append("path").datum(data).attr("fill","none").attr("stroke", `rgb(${colors[0]},${colors[1]},${colors[2]})`).attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 4.0).attr("d", line);
+        
+        // svg.append("circle").attr("cx", 200).attr("cy", 130).attr("r", 6).style("fill", `rgb(${colors[0]},${colors[1]},${colors[2]})`);
+     
+        // svg.append("text").attr("x", 220).attr("y", 130).text(`${nbrhood}`).style("font-size", "15px").attr("alignment-baseline", "right")
+        
+        let leg=document.getElementById('legend')
+        let title=document.createElement('text')
+            title.innerHTML=nbrhood
+        title.style.color = `rgb(${colors[0]},${colors[1]},${colors[2]})`
+        leg.append(title)
 
+        var br = document.createElement('br');
+        leg.appendChild(br)
+      leg.append()
         
     }
 

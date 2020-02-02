@@ -14,13 +14,23 @@
     align-items: center;
     margin-bottom: 3.2em;
 }
+
+
+#legend{
+    margin-left: 1.4em;
+    margin-top: 1.5em;
+    background-color: white;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+/* background-image: url("/BayAreaDataVis/assets/background.png"); */
 body{
     display:block;
     width:100%;
     font-family:  'Montserrat', sans-serif ;
     color:white;
     font-weight: bold;
-
     background-image: url("/BayAreaDataVis/assets/background.png");
     z-index:-1;
     background-repeat: no-repeat;
