@@ -26,7 +26,6 @@ let highlightStyle={
 
 }
 
-
     const findprices=(neighborhood)=>{
         let myPrices = [];
         prices.forEach(place => {
@@ -34,37 +33,8 @@ let highlightStyle={
                 myPrices.push('$' + place.Price__247)
             }
         });
-        //test to find missing neighborhood data
-        // if (myPrices.length<1){console.log(neighborhood)}
-        // console.log(myPrices)
      
         return myPrices
-    }
-
-
-    const biAnnualPrices = (neighborhood) => {
-        let priceList=[`${neighborhood}`];
-        prices.forEach(place => {
-            if (place['Neighborhood'] == neighborhood) {
-                priceList.push( '1996 '+'$'+ place.Price__1 + ' ')
-                priceList.push( '1998 '+'$' + place.Price__24 + ' ')
-                priceList.push( '2000 '+'$' + place.Price__48 + ' ')
-                priceList.push( '2002 '+'$' + place.Price__72 + ' ')
-                priceList.push( '2004 '+'$' + place.Price__96 + ' ')
-                priceList.push( '2006 '+'$' + place.Price__120 + ' ')
-                priceList.push( '2008 '+'$' + place.Price__144 + ' ')
-                priceList.push( '2010 '+'$' + place.Price__168 + ' ')
-                priceList.push( '2012 '+'$' + place.Price__192 + ' ')
-                priceList.push( '2014 '+'$' + place.Price__202 + ' ')
-                priceList.push( '2016 '+'$' + place.Price__225 + ' ')
-            }
-        });
-
-        let graph=document.getElementById('graph');
-        priceList.forEach(price=>{
-            graph.append(price)
-        })
-
     }
 
 
@@ -88,6 +58,14 @@ let highlightStyle={
         return dataPairs;
     }
 
+    const getNeighborhoodList = () => {
+        let allNeighborhoods = []
+        prices.forEach(place => {
+            allNeighborhoods.push(place.Neighborhood)
+        });
+        return allNeighborhoods
+    }
+
     function emptyGraph(data) {
         var svgWidth = 600, svgHeight = 400;
         var margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -100,8 +78,23 @@ let highlightStyle={
         var y = d3.scaleLinear()
             .range([height, 0]);
 
-        x.domain(d3.extent(data, (d) => { return d.year }));
-        y.domain(d3.extent(data, (d) => { return d.price }));
+            y.domain([0,2000000])
+            x.domain([1996,2016])
+        // x.domain(d3.extent(data, (d) => { return d.year }));
+        // y.domain(d3.extent(data, (d) => { return d.price }));
+
+        let allNeighborhoods=getNeighborhoodList();
+        allNeighborhoods.forEach(neighborhood=>{
+            let data=formatGraphData(neighborhood);
+            let line = d3.line().x((data) => { return x(data.year) })
+                .y((data) => { return y(data.price) })
+
+          
+            let colors = randColorArr();
+
+            g.append("path").datum(data).attr("fill", "none").attr("stroke", `rgb(${colors[0]},${colors[1]},${colors[2]})`).attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 4.0).attr("d", line).attr("class","hidden-line");
+
+        })
 
         g.append("g").attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x))
@@ -115,6 +108,8 @@ let highlightStyle={
             .text("Year vs. Median Home Price");
 
     }
+
+    emptyGraph();
 
     const drawChart=(data,nbrhood)=>{
         var svgWidth = 600, svgHeight = 400; 
@@ -158,11 +153,12 @@ let highlightStyle={
     }
 
 
+
 const onEachFeature = (feature, layer) => {
     layer.setStyle(regStyle);
-    let presidio=formatGraphData("Presidio");
-    emptyGraph(presidio);
-
+    // let presidio=formatGraphData("Presidio");
+    // emptyGraph(presidio);
+    
     ((layer, properties)=> {
 
         var popup = L.popup('', {
@@ -181,7 +177,6 @@ const onEachFeature = (feature, layer) => {
         
         layer.on("mouseover", () => {
             layer.setStyle(highlightStyle);
-            
             
             layer.openPopup();
         });
