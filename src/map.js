@@ -92,7 +92,7 @@ let highlightStyle={
           
             let colors = randColorArr();
 
-            g.append("path").datum(data).attr("fill", "none").attr("stroke", `rgb(${colors[0]},${colors[1]},${colors[2]})`).attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 4.0).attr("d", line).attr("class","hidden-line");
+            g.append("path").datum(data).attr("fill", "none").attr("stroke", `rgb(${colors[0]},${colors[1]},${colors[2]})`).attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 4.0).attr("d", line).attr("class","hidden-line").attr("id",`${neighborhood}`);
 
         })
 
@@ -183,9 +183,12 @@ const onEachFeature = (feature, layer) => {
         
         layer.on('click', ()=>{
             let nbrhood=layer.feature.properties.nbrhood
-            let data=formatGraphData(nbrhood)
-
-            drawChart(data,nbrhood);
+            // let data=formatGraphData(nbrhood)
+            let item=document.getElementById(`${nbrhood}`)
+            if (item){
+                item.classList.remove('hidden-line')
+            }
+            // drawChart(data,nbrhood);
 
         })
 
