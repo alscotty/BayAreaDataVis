@@ -91,6 +91,11 @@ h4,#title{
 }
 
 footer > a > img{
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+footer > a > img:hover{
+    opacity: 0.6;
 }

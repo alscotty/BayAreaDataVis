@@ -75,6 +75,7 @@ let highlightStyle={
         var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         var x = d3.scaleLinear()
             .range([0,width]);
+
         var y = d3.scaleLinear()
             .range([height, 0]);
 
@@ -95,7 +96,9 @@ let highlightStyle={
         })
 
         g.append("g").attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x))
+            .call(d3.axisBottom(x)
+                .tickFormat(d3.format("d")))
+                
 
         g.append("g").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Price ($)");
 
@@ -120,7 +123,7 @@ const onEachFeature = (feature, layer) => {
 
         let lastPrice=findprices(properties.nbrhood);
         
-        popup.setContent(`${properties.nbrhood}, latest avg home price (2016): ${lastPrice}`)
+        popup.setContent(`${properties.nbrhood}, latest avg. home price (2016): ${lastPrice}`)
         
         var popupOptions={
             'className':'popup'
