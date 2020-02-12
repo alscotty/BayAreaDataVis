@@ -70,7 +70,7 @@ let highlightStyle={
 
     function emptyGraph() {
         var svgWidth = 600, svgHeight = 400;
-        var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+        var margin = { top: 20, right: 20, bottom: 30, left: 60 },
             width = svgWidth - margin.left - margin.right,
             height = svgHeight - margin.top - margin.bottom;
         var svg = d3.select('#svg').attr("width", svgWidth).attr("height", svgHeight);
@@ -125,7 +125,7 @@ const onEachFeature = (feature, layer) => {
 
         let lastPrice=findprices(properties.nbrhood);
         
-        popup.setContent(`${properties.nbrhood}, latest avg. home price (2016): ${lastPrice}`)
+        popup.setContent(`${properties.nbrhood}, Avg. Home Price (2016): ${lastPrice}`)
         
         var popupOptions={
             'className':'popup',
@@ -145,7 +145,7 @@ const onEachFeature = (feature, layer) => {
             let item=document.getElementById(`${nbrhood}`)
             let leg = document.getElementById('legend')
             let title = document.createElement('text')
-            title.innerHTML = nbrhood
+            title.innerHTML = `● ${nbrhood}`
                 if (item){
                     if(item.classList.contains("hidden-line")){
                         title.style.color = item.getAttribute('stroke');
