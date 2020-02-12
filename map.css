@@ -57,14 +57,12 @@ body{
 
 #title{
     font-size: x-large;
-    margin-top: 5px;
-    margin-bottom: 5px;
     
 }
 
 h4,#title{
     margin-left: 5%;
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-right: 5%;
    border: 2px solid rgb(157, 17, 212);
    border-radius:5px;
@@ -98,14 +96,15 @@ footer > a > img{
 }
 
 footer > a > img:hover{
-    opacity: 0.6;
+    box-shadow: 10px 10px;;
 }
 
 #title-flex{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 3px solid pink;
+    margin-left:1%;
+    margin-right:1%;
 }
 
 footer{
