@@ -19,19 +19,25 @@
     display:none;
 }
 
+#sides{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 #legend{
     margin-left: 1.4em;
     margin-top: 1.5em;
+    padding:0.1em;
     background-color: white;
+    border-radius: 5px;
     font-weight: bolder;
     display: inline-block;
 }
 
+
 /* background-image: url("/BayAreaDataVis/assets/background.png"); */
 body{
-    /* display:block; */
-    /* width:100%; */
     font-family:  'Montserrat', sans-serif ;
     color:white;
     font-weight: bold;
@@ -43,12 +49,13 @@ body{
 }
 
 #zillow{
-    margin-left: 75%;
+    display:inline-block;
+    margin-left: 45%;
 }
 
 #z{
     text-decoration: none;
-    color:rgb(157, 17, 212)
+    color:rgb(157, 17, 212);
 }
 
 .popup {
@@ -62,15 +69,13 @@ body{
 
 h4,#title{
     margin-left: 5%;
-    /* margin-top: 2%; */
     margin-right: 5%;
    border: 2px solid rgb(157, 17, 212);
    border-radius:5px;
    width:60%;
    display: flex;
     justify-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px ;
+    padding:1%;
 }
 
 #graph{
@@ -83,7 +88,6 @@ h4,#title{
     font-size: larger;
     height:400px;
     width: 600px;
-    margin-left: 5%;
     border: 2px solid rgb(157, 17, 212);
     background-color: white;
 }
@@ -93,6 +97,7 @@ footer > a > img{
     width: 60px;
     border-radius: 50%;
     margin-left: 1em;
+    border: 2px solid rgb(157, 17, 212);
 }
 
 footer > a > img:hover{
