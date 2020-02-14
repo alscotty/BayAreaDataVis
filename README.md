@@ -1,7 +1,7 @@
 # BayAreaDataVis
 [BayAreaDataVis](https://alscotty.github.io/BayAreaDataVis/dist/index.html)
 
-This project is an interactive data visualization of the (very high!) median home prices and trends in San Francisco. A 20 year data set (1996-2016) was used from Zillow, and then set as a geoJSON layer for the map, allowing for users to hover and view relevant costs for each neighborhood. On clicking a region, the D3 graph will populate with a trendline of prices,
+This project is an interactive data visualization of the (very high!) median home prices and trends in San Francisco. A 20 year data set (1996-2016) was used from Zillow, and then set as a geoJSON layer for the map, allowing for users to hover and view relevant costs for each neighborhood. On clicking a region, the D3 graph will populate with a trendline of prices.
 
 
 ## Technologies:
