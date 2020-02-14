@@ -3,12 +3,15 @@
 
 This project is an interactive data visualization of the (very high!) median home prices and trends in San Francisco. A 20 year data set (1996-2016) was used from Zillow, and then set as a geoJSON layer for the map, allowing for users to hover and view relevant costs for each neighborhood. On clicking a region, the D3 graph will populate with a trendline of prices.
 
-
 ## Technologies:
 - HTML5, CSS3, Vanilla JavaScript
 - Leaflet.js
 - Mapbox GL
 - D3.js
+
+![trendline graph](/assets/pic1.png)
+
+![map](/assets/pic2.png)
 
 ## Highlights
 * Click event handler to display neighborhood price trendline on graph and append title as text on the DOM
